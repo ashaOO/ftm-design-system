@@ -11,6 +11,8 @@ npm install
 npm run storybook        # http://localhost:6006
 npm test                 # token + accessibility checks
 npm run build-storybook  # static site in storybook-static/
+npx playwright install chromium   # once
+npm run check:stories    # opens every story: fails if one is broken, empty or has accessibility issues
 ```
 
 ## What's inside
@@ -23,5 +25,6 @@ npm run build-storybook  # static site in storybook-static/
 - Storybook a11y addon (axe) on every story, set to fail on violations
 - Interaction test on the deal-desk decision flow
 - Unit test that blocks raw hex colours in component CSS
+- `check:stories` opens every built story, fails if one is broken or empty, and runs axe on each
 
 Designed and built by Shahd Ashraf.

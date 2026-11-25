@@ -1,0 +1,48 @@
+import { Meta, ColorPalette, ColorItem, Typeset } from '@storybook/blocks';
+
+<Meta title="Foundations" />
+
+# Foundations
+
+All values come from `src/tokens/tokens.json` and are exposed as CSS variables prefixed `--ftm-`.
+
+## Colour
+
+<ColorPalette>
+  <ColorItem title="Ink" subtitle="--ftm-ink · text" colors={{ ink: '#14233a', 'ink-soft': '#2d3e57', muted: '#6a7a94' }} />
+  <ColorItem title="Accent" subtitle="--ftm-accent · primary actions, focus" colors={{ accent: '#3d8bff', 'accent-strong': '#2a6fe0', 'accent-soft': '#d9ebff' }} />
+  <ColorItem title="Approve" subtitle="--ftm-mint · approve, correct, online" colors={{ mint: '#3ddc97', 'mint-strong': '#1fa873' }} />
+  <ColorItem title="Flag" subtitle="--ftm-coral · red flags, wrong" colors={{ coral: '#ff8a7a', 'coral-strong': '#d8634f' }} />
+  <ColorItem title="Freeze" subtitle="--ftm-freeze · freeze decision only" colors={{ freeze: '#5b93f0', 'freeze-strong': '#3a6fcc' }} />
+  <ColorItem title="Surface" subtitle="--ftm-surface · page behind glass" colors={{ surface: '#dde8f2', 'glass-fallback': '#f4f8fd' }} />
+</ColorPalette>
+
+**Decision colours are reserved.** Mint, coral and freeze blue always mean approve, flag and freeze. Never use them for decoration.
+
+## Type
+
+Inter, variable weight. Regular body, medium UI, bold only for titles and key words.
+
+<Typeset fontFamily="Inter" fontSizes={[52, 26, 20, 18, 15, 13.5, 12]} fontWeight={600} sampleText="Follow the money" />
+
+| Role | Size | Weight |
+|---|---|---|
+| Display (zone banner) | 52px | 800 |
+| Card title (h2) | 26px | 800 |
+| Subtitle (h3) | 20px | 700 |
+| Lead / question | 18px | 700 |
+| Body | 15px | 450 |
+| Small / UI | 13.5px | 600 |
+| Eyebrow | 11.5px uppercase, 0.1em | 650 |
+
+## Glass
+
+Panels use a white-to-blue gradient fill, a 1.5px white border and `blur(22px) saturate(1.4)`. When the user prefers reduced transparency, or the game switches to low-quality mode (`.ftm-low-quality`), glass falls back to a solid `#f4f8fd` so text stays readable and the GPU cost drops.
+
+## Radius and spacing
+
+Radius: 10 · 14 · 18 · 22 · 30 · pill. Spacing runs on a 4px grid: 4, 8, 12, 16, 20, 24, 28.
+
+## Motion
+
+Press 120ms, fade 250ms. Everything respects `prefers-reduced-motion`.

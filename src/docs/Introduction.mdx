@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+<img src="/img/logo.png" alt="Follow the Money logo" width="220" />
+
+# Follow the Money · Design System
+
+The UI kit behind **Follow the Money**, a multiplayer 3D training game that teaches new compliance officers to spot money laundering.
+
+Every component here was pulled out of the live game, cleaned up, given clear states and documented so it can be reused by designers, developers **and AI coding agents**.
+
+- **Play the game:** [follow-the-money-tawny.vercel.app](https://follow-the-money-tawny.vercel.app)
+- **Case study:** [follow-the-money-case-study.vercel.app](https://follow-the-money-case-study.vercel.app)
+
+## Why a design system for a game
+
+The game UI sits on top of a moving 3D city, so every panel has to stay readable over any background, work with a keyboard and feel the same in all three zones. Before this kit, styles lived in one 650-line stylesheet with three themes layered on top of each other. Pulling them into tokens and components means:
+
+- **One source of truth.** Colours, type, radius and glass live in `tokens.json`, mirrored as CSS variables.
+- **States are designed, not improvised.** Each component shows its idle, hover, selected, correct, wrong and disabled states.
+- **AI agents reuse it correctly.** `AGENTS.md` gives agents the rules: which component to use, which tokens to use, what never to do.
+
+## What's inside
+
+| Component | Used for |
+|---|---|
+| Button | Main actions: start, continue, end training |
+| DecisionButton | Approve / Flag / Freeze at the deal desk |
+| GlassCard | Briefings, questions, results |
+| Pill | Zone names, red flags, "officers online" |
+| ProgressBar | Loading, film, zone progress |
+| IconButton | Sound and menu in the HUD |
+
+## How I checked what the AI built
+
+The components were built with Claude Code. I treated its output as a first draft and checked it against the live game:
+
+1. **Visual match.** Each story renders over a real screenshot from the game, compared side by side with the original screen.
+2. **Accessibility.** Every story runs the Storybook a11y checker (axe). Stories fail on any violation, so contrast, labels and roles are checked on every change.
+3. **Behaviour.** The `DecisionButton / Desk Flow` story has an interaction test that clicks through a real decision and checks the screen-reader labels and pressed states.
+4. **Tokens only.** No component hard-codes a brand colour. A unit test scans every component stylesheet for raw hex values outside the allowed list.
+5. **Review through pull requests.** Each component landed in its own branch and pull request, reviewed before merging.

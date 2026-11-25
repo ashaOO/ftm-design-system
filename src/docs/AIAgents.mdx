@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Using with AI agents" />
+
+# Using this system with AI agents
+
+AI coding agents read `AGENTS.md` at the repo root before touching UI. The rules are short on purpose, so an agent can follow them without guessing.
+
+## The rules agents follow
+
+1. **Import from the kit.** `import { Button, GlassCard } from 'ftm-design-system'`. Never rebuild a button or card with raw HTML and CSS.
+2. **Tokens only.** Use `var(--ftm-*)` for colour, radius, spacing and shadow. No raw hex values.
+3. **Decision colours are reserved.** Mint, coral and freeze blue only appear through `DecisionButton`, `Pill` tones or feedback states.
+4. **One primary button per screen.** Everything else is `ghost`.
+5. **Every icon-only button gets a `label`.** `IconButton` throws an error without one, so the agent can't skip it.
+6. **Colour is never the only signal.** Correct and wrong states also change text or icons.
+7. **Check your work.** After a UI change, run `npm run test` and open the changed stories. The a11y panel must show zero violations.
+
+## Choosing a component
+
+| If you need… | Use |
+|---|---|
+| A main action | `Button` (primary) |
+| Back, resume, cancel | `Button` (ghost) |
+| Approve / Flag / Freeze | `DecisionGroup` |
+| A briefing, question or result panel | `GlassCard` |
+| A red-flag moment | `GlassCard tone="flag"` + `Pill tone="coral"` |
+| A short status | `Pill` |
+| Loading or progress | `ProgressBar` with `label` |
+| Sound or menu in the HUD | `IconButton` with `label` |

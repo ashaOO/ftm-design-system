@@ -1,0 +1,72 @@
+/* Follow the Money design tokens. Mirrors tokens.json. Do not hard-code these values in components. */
+@font-face { font-family: 'Inter'; src: url('/fonts/inter-var.woff2') format('woff2'); font-weight: 100 900; font-display: swap; }
+
+:root {
+  --ftm-ink: #14233a;
+  --ftm-ink-soft: #2d3e57;
+  --ftm-muted: #6a7a94;
+  --ftm-accent: #3d8bff;
+  --ftm-accent-strong: #2a6fe0;
+  --ftm-accent-soft: #d9ebff;
+  --ftm-mint: #3ddc97;
+  --ftm-mint-strong: #1fa873;
+  --ftm-coral: #ff8a7a;
+  --ftm-coral-strong: #d8634f;
+  --ftm-freeze: #5b93f0;
+  --ftm-freeze-strong: #3a6fcc;
+  --ftm-danger: #e8574b;
+  --ftm-surface: #dde8f2;
+
+  --ftm-glass-fill: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(235,243,255,0.62));
+  --ftm-glass-border: 1.5px solid rgba(255,255,255,0.9);
+  --ftm-glass-blur: blur(22px) saturate(1.4);
+  --ftm-glass-fallback: #f4f8fd;
+
+  --ftm-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ftm-weight-body: 450;
+  --ftm-weight-ui: 600;
+  --ftm-weight-strong: 650;
+  --ftm-weight-subtitle: 700;
+  --ftm-weight-title: 800;
+
+  --ftm-text-caption: 12px;
+  --ftm-text-small: 13.5px;
+  --ftm-text-body: 15px;
+  --ftm-text-lead: 18px;
+  --ftm-text-h3: 20px;
+  --ftm-text-h2: 26px;
+  --ftm-text-display: 52px;
+
+  --ftm-radius-sm: 10px;
+  --ftm-radius-md: 14px;
+  --ftm-radius-lg: 18px;
+  --ftm-radius-xl: 22px;
+  --ftm-radius-xxl: 30px;
+  --ftm-radius-pill: 999px;
+
+  --ftm-space-1: 4px;
+  --ftm-space-2: 8px;
+  --ftm-space-3: 12px;
+  --ftm-space-4: 16px;
+  --ftm-space-5: 20px;
+  --ftm-space-6: 24px;
+  --ftm-space-7: 28px;
+
+  --ftm-shadow-card: 0 1px 0 rgba(255,255,255,0.9) inset, 0 24px 60px rgba(20,35,58,0.22);
+  --ftm-shadow-float: 0 8px 24px rgba(20,35,58,0.16);
+  --ftm-shadow-accent: 0 1px 0 rgba(255,255,255,0.45) inset, 0 8px 22px rgba(42,111,224,0.35);
+
+  --ftm-focus-ring: 0 0 0 3px #ffffff, 0 0 0 6px var(--ftm-accent-strong);
+  --ftm-motion-press: 120ms;
+  --ftm-motion-fade: 250ms;
+}
+
+/* Solid glass when the user asks for less transparency, or in low-quality mode */
+@media (prefers-reduced-transparency: reduce) {
+  :root { --ftm-glass-fill: var(--ftm-glass-fallback); --ftm-glass-blur: none; }
+}
+.ftm-low-quality { --ftm-glass-fill: var(--ftm-glass-fallback); --ftm-glass-blur: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --ftm-motion-press: 0ms; --ftm-motion-fade: 0ms; }
+}

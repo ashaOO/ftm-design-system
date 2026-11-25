@@ -1,0 +1,4 @@
+body { font-family: var(--ftm-font); color: var(--ftm-ink); }
+.sb-scene { position: relative; isolation: isolate; overflow: hidden; padding: 64px 56px; border-radius: 24px; min-width: 620px; min-height: 360px; display: grid; place-items: center; }
+.sb-scene::before { content: ''; position: absolute; inset: -20px; z-index: -1; background: url('/img/bg-start.jpg') center/cover; filter: blur(10px) saturate(1.1); }
+.sb-scene::after { content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(221,232,242,0.25); }

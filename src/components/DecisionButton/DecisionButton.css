@@ -1,0 +1,31 @@
+.ftm-decision {
+  --tone: var(--ftm-mint); --tone-edge: var(--ftm-mint-strong);
+  position: relative;
+  display: inline-flex; align-items: center; gap: var(--ftm-space-3);
+  min-height: 56px; min-width: 150px; padding: 0 var(--ftm-space-5) 0 var(--ftm-space-4);
+  font-family: var(--ftm-font); font-size: 17px; font-weight: var(--ftm-weight-ui); color: var(--ftm-ink);
+  background: rgba(255,255,255,0.82); border: 1.5px solid #fff; border-radius: var(--ftm-radius-lg);
+  box-shadow: 0 5px 0 #cad6ea, 0 1px 0 #fff inset;
+  cursor: pointer;
+  transition: transform var(--ftm-motion-press), box-shadow var(--ftm-motion-press), opacity var(--ftm-motion-fade);
+}
+.ftm-decision--flag   { --tone: var(--ftm-coral);  --tone-edge: var(--ftm-coral-strong); }
+.ftm-decision--freeze { --tone: var(--ftm-freeze); --tone-edge: var(--ftm-freeze-strong); }
+
+.ftm-decision__swatch { width: 14px; height: 14px; border-radius: 50%; background: var(--tone); box-shadow: 0 0 0 3px rgba(255,255,255,0.9); flex: none; }
+.ftm-decision__label { flex: 1; text-align: left; }
+.ftm-decision[data-key]::after { content: attr(data-key); font: 600 12px var(--ftm-font); color: var(--ftm-muted); background: #fff; border: 1px solid #d5deec; border-radius: 6px; padding: 1px 7px; }
+.ftm-decision__mark { font-size: 18px; font-weight: 800; }
+
+.ftm-decision:hover:not(:disabled) { transform: translateY(-2px); }
+.ftm-decision:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 1px 0 #cad6ea; }
+.ftm-decision:focus-visible { outline: none; box-shadow: var(--ftm-focus-ring); }
+
+.ftm-decision.is-selected { background: var(--tone); color: var(--ftm-ink); box-shadow: 0 5px 0 var(--tone-edge); }
+.ftm-decision.is-selected .ftm-decision__swatch { background: #fff; }
+.ftm-decision.is-correct { background: var(--tone); box-shadow: 0 0 0 3px var(--ftm-mint-strong), 0 5px 0 var(--tone-edge); transform: scale(1.03); }
+.ftm-decision.is-wrong { background: #fff0ee; color: #8a2a1e; box-shadow: 0 0 0 2px var(--ftm-coral); }
+.ftm-decision:disabled { cursor: default; }
+.ftm-decision:disabled:not(.is-correct):not(.is-wrong) { opacity: 0.45; }
+
+.ftm-decision-group { display: flex; flex-wrap: wrap; gap: var(--ftm-space-3); }

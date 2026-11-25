@@ -1,0 +1,7 @@
+.ftm-progress { font-family: var(--ftm-font); width: min(320px, 70vw); display: flex; flex-direction: column; gap: 6px; }
+.ftm-progress__meta { display: flex; justify-content: space-between; font-size: var(--ftm-text-small); font-weight: var(--ftm-weight-ui); color: #4a5b78; }
+.ftm-progress__value { font-variant-numeric: tabular-nums; }
+.ftm-progress__track { height: 12px; border-radius: 99px; background: rgba(255,255,255,0.7); border: 1.5px solid #fff; overflow: hidden; box-shadow: 0 6px 18px rgba(20,35,58,0.12) inset; }
+.ftm-progress--sm .ftm-progress__track { height: 6px; }
+.ftm-progress__track b { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #8ec0ff, var(--ftm-accent)); transition: width 300ms ease; }
+@media (prefers-reduced-motion: reduce) { .ftm-progress__track b { transition: none; } }

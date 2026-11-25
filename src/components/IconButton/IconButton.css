@@ -1,0 +1,14 @@
+.ftm-ibtn {
+  width: 52px; height: 52px; padding: 0; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer; color: var(--ftm-ink);
+  border: 2px solid rgba(255,255,255,0.95);
+  background: radial-gradient(circle at 35% 25%, rgba(255,255,255,0.95), rgba(220,234,252,0.75) 60%, rgba(180,206,240,0.7));
+  box-shadow: 0 1px 0 #fff inset, 0 -3px 6px rgba(80,120,180,0.18) inset, 0 8px 20px rgba(20,35,58,0.2);
+  backdrop-filter: blur(10px);
+  transition: transform 150ms;
+}
+.ftm-ibtn svg { width: 26px; height: 26px; }
+.ftm-ibtn:hover { transform: translateY(-2px) scale(1.05); }
+.ftm-ibtn:focus-visible { outline: none; box-shadow: var(--ftm-focus-ring); }
+.ftm-ibtn[aria-pressed='true'] { background: radial-gradient(circle at 35% 25%, #e6f1ff, #8ec0ff 70%, var(--ftm-accent)); color: #fff; }
+@media (prefers-reduced-motion: reduce) { .ftm-ibtn { transition: none; } .ftm-ibtn:hover { transform: none; } }
